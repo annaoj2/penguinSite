@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<HTML>
+    <HEAD>
+        <TITLE>All About Penguins</TITLE>
+        <LINK REL="stylesheet" HREF="mystyles.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+            
+         <!--<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.1.3"></script>
+        <script type="text/javascript" src="http://mbostock.github.com/d3/d3.geom.js?2.1.3"></script>
+        <script type="text/javascript" src="http://mbostock.github.com/d3/d3.layout.js?2.1.3"></script>
+-->
+            
+        <script src="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.min.js"></script>
+        <link href="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.css"></LINK>
+        <link rel="stylesheet" href="mystyles.css">
+        
+    </HEAD>
+    
+    
+    <BODY class="container-fluid">
+        <script myscript.js></script>
+        
+        <script>
+
+function changeText(elementId, myText) {
+         // saves user input in a variable
+         //var inputText = document.getElementById('theInput').value;
+        
+         // change the html content to whatever the user input
+         document.getElementById(elementId).innerHTML = myText;
+     }
+function favoritePenguin (species) {
+        console.log("Your favorite type of penguin is the "+species+" Penguin.");
+    }
+
+
+function verifySpeciesCount() {
+    inputText = document.getElementById("numb").value;
+    if (Number(inputText)==18) {
+        window.alert("That\'s right!");
+    } else {
+        window.alert("Try again!");
+    }
+}
+
+function penguinFact(factNum) {
+    var fact = '';
+    if (factNum==1){
+        fact = "Penguins live only in the Southern Hemisphere.";
+    } else if (factNum==2) {
+        fact = "Penguins live in Antarctica, Africa, South America, and Australia, but they do not live in North America, Europe, or Asia.";
+    } else {
+        fact = "Depending on the species and the food availability, penguins eat fish, krill, or squid.";
+    }
+    return fact; 
+}
+
+function displayPenguinFact(factNum,elementId) {
+    fact = penguinFact(factNum);
+    changeText(elementId, fact);
+}</script>
+        <H1>All About Penguins</H1>
+        
+        <p>Penguins are flightless birds that live in the Southern Hemisphere. Although penguins are seabirds, they also spend time on land to rest, to raise their young, and to momentarily escape predators.</p>
+        
+        <H2>Selected Types of Penguins</H2>
+        
+        <p>Click on any penguin row for more information.</p>
+
+        <div class="container">
+        <table class="table table-striped table-condensed w3-table table-hover">
+            
+                <TR>
+                    <TH>Species</TH>
+                    <TH>Genus</TH>
+                </TR>
+                <TR onclick="document.location ='#emperor';">
+                    <TD>Emperor</TD>
+                    <TD>Aptenodytes</TD>
+                    
+                </TR>
+                <TR onclick="document.location ='#king';">
+                    <TD>King</TD>
+                    <TD>Aptenodytes</TD>
+                </TR>
+                <TR onclick="document.location ='#adelie';">
+                    <TD>Adelie</TD>
+                    <TD>Pygoscelis</TD>
+                </TR>
+                <TR onclick="document.location ='#gentoo';">
+                    <TD>Gentoo</TD>
+                    <TD>Pygoscelis</TD>
+                </TR>
+                <TR onclick="document.location ='#chinstrap';">
+                    <TD>Chinstrap</TD>
+                    <TD>Pygoscelis</TD>
+                </TR>
+                <TR onclick="document.location ='#southern_rockhopper';">
+                    <TD>Southern Rockhopper</TD>
+                    <TD>Eudyptes</TD>
+                </TR>
+                <TR onclick="document.location ='#humboldt';">
+                    <TD>Humboldt </TD>
+                    <TD>Spheniscus</TD>
+                </TR>
+                <TR onclick="document.location ='#fiordland';">
+                    <TD>Fiordland</TD>
+                    <TD>Eudyptes</TD>
+                </TR>
+        </table>
+        </div>
+        
+        <script src="piechart.js"></script>
+        <div id="chart" class="centered-item">
+        <svg></svg>
+        </div>
+        <!--<script src="myscript.js"></script>
+-->
+        <H2>General Penguin Facts</H2>
+        <p>Click on the buttons below to display additional facts about penguins. </p>
+        
+        <p id="fact1"></p>
+        <p id="fact2"></p>
+        <p id="fact3"></p>
+        
+        <div class="row">
+            <div class="col-sm-4">
+                <button type="button" class='btn btn-block' onclick=displayPenguinFact(1,'fact1')>Fact 1</button></div>
+            <div class="col-sm-4">
+                <button type="button" class='btn btn-block' onclick=displayPenguinFact(2,'fact2')>Fact 2</button></div>
+            <div class="col-sm-4">
+                <button type="button" class='btn btn-block' onclick=displayPenguinFact(3,'fact3')>Fact 3</button></div>
+        </div>
+        
+        <h2>Short Penguin Quiz</h2>
+        
+        <div class="centered-item">
+        <p>How many species of penguin are there?</p>
+
+        <form autocomplete="off">
+        <input id="numb">
+        </form>
+        <button type="button" onclick="verifySpeciesCount(numb)" >Submit</button>
+        </div>
+        
+        <ol>
+            <li id="emperor">
+                <h4>Emperor Penguin</h4>
+                <p><img class="img-thumbnail penguinSpecies"  src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg"></p>
+                <br>
+                <ul>
+                    <li>Lives in Antarctica</li>
+                    <li>Does not build a nest; instead, incubates egg on top of its feet</li>
+                </ul>
+            </li>
+            <li id="king">
+                <h4>King Penguin</h4>
+                <p><img class="img-thumbnail penguinSpecies" src="https://upload.wikimedia.org/wikipedia/commons/b/be/SGI-2016-South_Georgia_%28Fortuna_Bay%29%E2%80%93King_penguin_%28Aptenodytes_patagonicus%29_04.jpg"></p>
+                <br>
+                <ul>
+                    <li>Lives on sub-Antarctic islands, e.g. South Georgia Island</li>
+                    <li>Does not build a nest; instead, incubates egg on top of its feet</li>
+                </ul>
+            </li>
+            <li id="adelie">
+                <h4>Adelie Penguin</h4>
+                <p><img class="img-thumbnail penguinSpecies" src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Hope_Bay-2016-Trinity_Peninsula%E2%80%93Ad%C3%A9lie_penguin_%28Pygoscelis_adeliae%29_04.jpg"></p>
+                <br>
+                <ul>
+                    <li>Lives in Antarctica</li>
+                    <li>Nests on piles of stones</li>
+                </ul>
+            </li>
+            <li id="chinstrap">
+                <h4>Chinstrap Penguin</h4>
+                <p><img class="img-thumbnail penguinSpecies" src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Antarctic%2C_antarctic_penguin_%28js%29_65.jpg"></p>
+                <br>
+                <ul>
+                    <li>Lives on the Antarctic Peninsula</li>
+                    <li>Nests on piles of stones</li>
+                </ul>
+            </li>
+            <li id="gentoo">
+                <h4>Gentoo Penguin</h4>
+                <p><img class="img-thumbnail penguinSpecies" src="https://upload.wikimedia.org/wikipedia/commons/0/00/Brown_Bluff-2016-Tabarin_Peninsula%E2%80%93Gentoo_penguin_%28Pygoscelis_papua%29_03.jpg"></p>
+                <br>
+                <ul>
+                    <li>Lives on the Antarctic Peninsula, on sub-Antarctic islands, in the Falklands, and occasionally on islands off the coast of Argentina</li>
+                    <li>Nests in mud structures with stones</li>
+                </ul>
+            </li>
+            <li id="southern_rockhopper">
+                <h4>Southern Rockhopper Penguin</h4>
+                <p><img class="img-thumbnail penguinSpecies" src="https://upload.wikimedia.org/wikipedia/commons/8/88/Eudyptes_chrysocome.jpg"></p>
+                <br>
+                <ul>
+                    <li>Lives on sub-Antarctic islands and in the more temperate Falkland Islands</li>
+                    <li>Nests in shallow scrapes lined with vegetation</li>
+                </ul>
+            </li>
+            <li id="humboldt">
+                <h4>Humboldt Penguin</h4>
+                <p><img class="img-thumbnail penguinSpecies" src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Humboldt_Penguin_%28Spheniscus_humboldti%29-upper_body.jpg"></p>
+                <br>
+                <ul>
+                    <li>Lives in Peru</li>
+                    <li>Nests in underground burrows</li>
+                </ul>
+            </li>
+            <li id="fiordland">
+                <h4>Fiordland Penguin</h4>
+                <p><img class="img-thumbnail penguinSpecies" src="https://upload.wikimedia.org/wikipedia/commons/5/50/Fiordland_penguin_%28Mattern%29.jpg"></p>
+                <br>
+                <ul>
+                    <li>Lives in coastal forests of New Zealand</li>
+                    <li>Nests in caves, under vegetation, or in any other hidden natural structure</li>
+                </ul>
+            </li>
+        </ol>
+        
+    </BODY>
+</HTML>
+

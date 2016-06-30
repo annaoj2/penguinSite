@@ -1,0 +1,42 @@
+body {
+    background-color: lightblue;
+}
+
+table {
+    background-color: white;
+    align-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+.centered-item {
+    text-align: center;
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+.submit-button {
+    text-align: center;
+}
+
+tr {
+    text-align: left;
+}
+
+td {
+    text-align: left;
+}
+
+img.penguinSpecies {
+    width: 30%;
+}
+
+#chart svg {
+  height: 400px;
+}
